@@ -24,3 +24,13 @@ a {
   margin: 0px;
   padding-right: 20px;
 }
+
+.plotly {
+  margin: auto;
+}
+
+iframe {
+  display: block; 
+  margin-left: -25%;
+  width: 150%;
+}

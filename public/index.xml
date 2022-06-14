@@ -9,13 +9,33 @@
     <description>Recent content on Open Justice Oklahoma</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jun 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Hello R Markdown</title>
+      <title>Data Deep Dive: Oklahoma County Detention Center</title>
+      <link>/post/2022-06-14-data-deep-dive-oklahoma-county-detention-center/</link>
+      <pubDate>Tue, 14 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2022-06-14-data-deep-dive-oklahoma-county-detention-center/</guid>
+      <description>
+        
+          
+          
+          
+        
+        
+        
+          1. The Oklahoma County Detention Center Located in Oklahoma City, the Oklahoma County Detention Center (OCDC) is the biggest jail in the state, currently incarcerating an average of around 1,500-1,600 people. It used to be much bigger – in 2016, the jail’s population peaked at over 2,500 people, X% the jail’s original intended capacity – but reform efforts undertaken in the last few years have successfully begun to reverse this upward trend.
+          
+        
+        </description>
+    </item>
+    
+    <item>
+      <title>A Fancy R Markdown Post</title>
       <link>/post/2020-12-01-r-rmarkdown/</link>
       <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
       
@@ -37,39 +57,19 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     </item>
     
     <item>
-      <title>Showcase</title>
-      <link>/showcase/</link>
-      <pubDate>Fri, 18 Jan 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/showcase/</guid>
-      <description>
-        
-          
-          
-          
-        
-        
-        
-          Header 2 # Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec interdum metus. Aenean rutrum ligula sodales ex auctor, sed tempus dui mollis. Curabitur ipsum dui, aliquet nec commodo at, tristique eget ante. Donec quis dolor nec nunc mollis interdum vel in purus. Sed vitae leo scelerisque, sollicitudin elit sed, congue ante. In augue nisl, vestibulum commodo est a, tristique porttitor est. Proin laoreet iaculis ornare. Nullam ut neque quam.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Hello Friend</title>
+      <title>A Plain Old Markdown Post</title>
       <link>/post/hello/</link>
-      <pubDate>Wed, 17 Sep 1986 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>/post/hello/</guid>
       <description>
         
-          &lt;img src=&#34;/img/hello.jpg&#34;/&gt;
+          &lt;img src=&#34;/img/bean.jpg&#34;/&gt;
           
         
         
         
-          &#34;Hello, friend?&#34; That&#39;s lame. Maybe I should give you a name?
+          Posts can be plain Markdown as well.
           
         
         </description>

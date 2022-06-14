@@ -3,18 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/categories/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+    <lastmod>2022-06-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/2022-06-14-data-deep-dive-oklahoma-county-detention-center/</loc>
+    <lastmod>2022-06-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/jails/</loc>
+    <lastmod>2022-06-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/jails/</loc>
+    <lastmod>2022-06-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/ocdc/</loc>
+    <lastmod>2022-06-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/oklahoma-county/</loc>
+    <lastmod>2022-06-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2022-06-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/post/</loc>
+    <lastmod>2022-06-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-06-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/post/2020-12-01-r-rmarkdown/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url><url>
-    <loc>/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
-  </url><url>
     <loc>/tags/plot/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
-  </url><url>
-    <loc>/post/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url><url>
     <loc>/categories/r/</loc>
@@ -26,14 +44,20 @@
     <loc>/tags/regression/</loc>
     <lastmod>2020-12-01T21:13:14-05:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
-  </url><url>
-    <loc>/showcase/</loc>
-    <lastmod>2019-01-18T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/post/hello/</loc>
-    <lastmod>1986-09-17T00:00:00+00:00</lastmod>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/bean/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/cat/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/feline/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/markdown/</loc>
+    <lastmod>2020-01-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/about/</loc>
   </url><url>
