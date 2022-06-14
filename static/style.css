@@ -1,12 +1,20 @@
-.post-title {
+body.light-theme a {
+  color: #000000;
+}
+
+body.dark-theme a {
+  color: #FFC107;
+}
+
+body.light-theme .post-title {
+  color: #000000;
+}
+
+body.dark-theme .post-title {
   color: #FFC107;
 }
 
 sup {
-  color: #FFC107;
-}
-
-a {
   color: #FFC107;
 }
 

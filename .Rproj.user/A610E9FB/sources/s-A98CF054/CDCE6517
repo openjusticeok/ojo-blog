@@ -3,7 +3,7 @@
     "path": "~/Documents/GitHub/ojo-blog/static/style.css",
     "project_path": "static/style.css",
     "type": "css",
-    "hash": "585579547",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1655231212463.0,
@@ -12,15 +12,15 @@
     "properties": {
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "33,20",
-        "scrollLine": "4"
+        "cursorPosition": "20,17",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1655237410,
+    "lastKnownWriteTime": 1655245828,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1655237410779,
+    "last_content_update": 1655245828587,
     "read_only": false,
     "read_only_alternatives": []
 }

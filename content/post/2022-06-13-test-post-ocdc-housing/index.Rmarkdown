@@ -12,7 +12,7 @@ cover: "/www/jail.png"
 bibliography: references.bib
 link-citations: true
 nocite: '@*'
-draft: true
+draft: false
 ---
 
 ```{r setup, include=FALSE}

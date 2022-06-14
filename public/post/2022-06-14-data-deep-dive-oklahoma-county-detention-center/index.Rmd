@@ -33,7 +33,7 @@ knitr::opts_chunk$set(warning = FALSE,
 #                  table = "arrest") |>
 #   collect()
 # write_rds(books, "./data/ocdc_books.rds")
-book_data <- read_rds("./data/ocdc_books.rds")
+# book_data <- read_rds("./data/ocdc_books.rds")
 
 # daily_pop <- ojo_tbl(schema = "ocdc",
 #                      table = "daily_pop") |>
