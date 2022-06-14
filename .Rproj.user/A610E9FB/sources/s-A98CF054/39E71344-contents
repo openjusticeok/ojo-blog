@@ -1,0 +1,219 @@
+---
+title: "OJO Data Deep Dive: Who Goes to Jail?"
+runtime: shiny
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme:
+      color-contrast-warnings: false
+      bg: "#202123"
+      fg: "#B8BCC2"
+      primary: "#FFC107"
+      secondary: "#00DAC6"
+      base_font:
+        google: Roboto
+      heading_font:
+        google: Roboto Mono
+---
+
+```{r setup, include=FALSE}
+# Uncomment to enable live themeing:
+# bslib::bs_themer()
+
+if (requireNamespace("thematic")) 
+  thematic::thematic_rmd(font = "auto")
+
+knitr::opts_chunk$set(warning = FALSE, 
+                      message = FALSE,
+                      echo = FALSE,
+                      fig.align = 'center',
+                      fig.showtext = TRUE)
+
+
+# Setup ========================================================================
+library(ojodb)
+library(ggthemes)
+library(tidyverse)
+library(plotly)
+library(shiny)
+options(scipen = 999)
+
+# OCDC Data
+# books <- ojo_tbl(schema = "ocdc",
+#                  table = "arrest") |>
+#   collect()
+# write_rds(books, "./data/ocdc_books.rds")
+books <- read_rds("./data/ocdc_books.rds")
+
+# daily_pop <- ojo_tbl(schema = "ocdc",
+#                      table = "daily_pop") |>
+#   collect() |>
+#   filter(day > ymd("2016-01-01"))
+# write_rds(daily_pop, "./data/daily_pop.rds")
+daily_pop <- read_rds("./data/daily_pop.rds")
+```
+
+## The Oklahoma County Detention Center
+
+Located in Oklahoma City, the Oklahoma County Detention Center (OCDC) is the biggest jail in the state, currently incarcerating an average of around 1,500-1,600 people. It used to be much bigger -- in 2016, the jail's population peaked at over 2,500 people, X% the jail's original intended capacity -- but reform efforts undertaken in the last few years have successfully begun to reverse this upward trend.
+
+<center>
+```{r ocdc_pop}
+# OCDC Daily Population
+plot_pop <- daily_pop |>
+  # ggplot
+  ggplot(aes(x = day, 
+             y = pop,
+             text = paste0("Date: ", day, "<br>",
+                           "Population: ", format(pop, big.mark = ",")),
+             group = 1,
+             )) +
+  geom_line() +
+  scale_y_continuous(limits = c(0, NA),
+                     labels = scales::comma) +
+  # SQ lines
+  # geom_vline(xintercept = as.numeric(ymd("2017-7-01")), linetype = "dashed", color = "red") +
+  # annotate(geom = "text", color = "red", label = " SQ 780 Effective Date", x = ymd("2017-7-01"), y = 800) +
+  # geom_vline(xintercept = as.numeric(ymd("2018-7-01")), linetype = "dashed", color = "green") +
+  # annotate(geom = "text", color = "green", label = " SQ 787 Effective Date", x = ymd("2018-7-01"), y = 1200) +
+  labs(
+    title = "Oklahoma County Jail Population, 2016-2022",
+    x = "Date",
+    y = "OCDC Jail Population"
+  ) +
+  theme(
+    text = element_text(family = "Roboto Mono"),
+    plot.title = element_text(hjust = 0.5),
+    plot.subtitle = element_text(hjust = 0.5)
+  )
+
+ggplotly(plot_pop, tooltip = "text") |>
+  config(displayModeBar = FALSE)
+
+```
+</center>
+
+Despite the efforts at reform, however, the jail is still mired in controversy and public criticism. The jail remains one of the deadliest in the country, [averaging 4.77 deaths per 1,000 inmates from 2016-2019 compared to a national average of 1.46](https://oklahomawatch.org/2021/02/09/oklahomas-jail-mortality-rate-ranks-second-in-nation/). Concerns about safety became even greater with the arrival of COVID-19, which is known to pose an [elevated threat to highly concentrated indoor areas like jails and prisons](https://okpolicy.org/reducing-our-incarceration-population-is-a-matter-of-public-safety-and-public-health/). On top of all of this, public trust in the jail's leadership was recently shaken by leaked conversations from the jail's director, [who bragged about COVID being the jail's "friend" because it brought in millions of dollars of funding and provided a convenient excuse to keep people from seeing the conditions inside the jail](https://kfor.com/news/local/i-dont-see-this-as-a-big-deal-jail-trust-members-react-after-jail-administrator-recorded-saying-covid-is-our-friend/).
+
+These issues have received a lot of attention from the surrounding community, and rightfully so. As we grapple with these problems and [vote on potential solutions](https://www.oklahoman.com/story/news/2022/04/05/bond-election-scheduled-june-28-oklahoma-county-jail-funding/7248068001/), relatively little attention is paid to the question of "who is actually in the jail?" In other words, which parts of our community are the most heavily incarcerated? What do the people in our jails look like, where are they from, and why are they there? Open Justice Oklahoma examined OCDC jail booking data to shed light on these questions and provide important context for the ongoing dialogue about the jail's future.
+
+> **Jails vs. Prisons:**
+>
+> *Jail* is where you go right after you're placed under arrest. Jails are typically run by local government -- for example, OCDC is run by Oklahoma County. Very few people in jail are there serving a sentence; in fact, the vast majority of people in jails have not been convicted of any crime, and are there because they can't afford bond and / or are awaiting a court date. On the other hand, *prison* is where you go once you've been convicted and sentenced. Prisons are typically run by the state or federal government, and are designed to incarcerate people for long periods of time. While jails are almost always owned and operated by the government, prisons are sometimes run by private corporations -- in Oklahoma, privately run prisons include the Cimarron, Davis, and Lawton correctional facilities.
+
+## Who is in the Jail?
+
+The jail collects data from everyone they book, including information on race, gender, age, etc. You can take a look at the jail's population over time (going back to 2016) through each of these lenses using the tool below. The red line denotes the jail's total population on each day for reference, and you can hover over the lines for additional information. You can also adjust what time period you want to view using the slider bar.
+
+Note that the categories for race and gender were determined by the jail's intake forms, which have changed a few times over the years; for example, options for "Biracial / more than one race" or "other gender" were not added until recently, and were thus not available as options throughout the whole time period.
+
+### Explore the Data: Jail Population Over Time
+
+```{r cool_shiny}
+# Reactive dataset, returns daily pop data broken down by race, gender, or both
+# TODO: add age, others (I don't think I can do zip code historically)? Add bookings graph as well?
+# TODO: could also swap this out with a snapshot
+interact_data.react <- reactive({
+  
+  if(input$data_view == "Race") {
+    daily_pop |>
+      select(!c(row_names, m_pop, f_pop, o_pop))
+  } else {
+    daily_pop |>
+      select(c(day, pop, m_pop, f_pop, o_pop))
+  }
+  
+})
+
+# Interactive plot
+output$interact_plot <- renderPlotly({
+  
+  p <- interact_data.react() |>
+  pivot_longer(cols = ends_with("_pop")) |>
+  rename(total_pop = pop,
+         pop = value,
+         category = name) |>
+  mutate(category = str_replace(category, "_pop", ""),
+         category = case_when(category == "bi_racial" | category == "mid_east" | category == "unknown" ~ "other / unknown",
+                              category == "m" ~ "male",
+                              category == "f" ~ "female",
+                              category == "o" ~ "other",
+                              TRUE ~ category)
+         ) |>
+  ggplot(aes(x = day,
+             y = pop,
+             color = reorder(category, -pop),
+             group = 1,
+             text = paste0("Date: ", day, "<br>",
+                           "Category: ", category, "<br>",
+                           "Population: ", format(pop, big.mark = ","))
+             )) +
+  geom_line() +
+  geom_line(aes(y = total_pop,
+                text = paste0("Date: ", day, "<br>",
+                              "Total Jail Population: ", format(total_pop, big.mark = ","))), 
+            color = "red") +
+  labs(title = "",
+       x = "",
+       y = "OCDC Population",
+       color = "Category") +
+  scale_x_date(limits = c(input$data_timespan[[1]], input$data_timespan[[2]])) +
+  scale_color_colorblind()
+  
+  ggplotly(p, tooltip = "text") |>
+  layout(legend = list(orientation = "h")) |>
+  config(displayModeBar = FALSE)
+  
+}) 
+
+# Panel layout
+sidebarLayout(
+  sidebarPanel(
+  selectInput(inputId = "data_view",
+              label = "Break down by:",
+              choices = c("Race", "Gender")),
+
+  sliderInput(inputId = "data_timespan",
+                     label = "Show data from:",
+                     value = c(ymd("2016-01-01"), ymd("2022-05-23")),
+                     min = ymd("2016-01-01"),
+                     max = ymd("2022-05-23"),
+                     dragRange = TRUE,
+                     animate = FALSE
+                     )
+  ),
+  mainPanel(
+    plotlyOutput("interact_plot")
+  )
+)
+
+```
+
+### Geography
+
+asdf
+
+### Race
+
+asdf
+
+### Gender
+
+asdf
+
+## Conclusion
+
+The problems at OCDC are unique in some ways, but the people incarcerated there are not dissimilar from most other local jails across the country.
+
+-   [According to the Prison Policy Institute](https://www.prisonpolicy.org/reports/pie2022.html#datasection), around 80% of all people held by local jails are pre-trial, meaning they have not been convicted of a crime. At OCDC, this number was X% (as of YDATE).
+
+-   [One study found](https://ps.psychiatryonline.org/doi/pdf/10.1176/ps.2008.59.2.170) that 15.3% of the U.S. jail population reported at least one episode of homelessness in the year prior to their arrest. At OCDC, a snapshot of the population on YDATE showed X% of people detained were listed as being homeless.
+
+-   Racial disparities
+
+-   Gender disparities
+
+-   Geography / poverty
+
+

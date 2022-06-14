@@ -1,0 +1,20 @@
+.post-title {
+  color: #FFC107;
+}
+
+sup {
+  color: #FFC107;
+}
+
+a {
+  color: #FFC107;
+}
+
+.stat-highlight {
+  color: #FFC107;
+  font-size: 50pt;
+  font-weight: bold;
+  text-align: center;
+  padding: -40px;
+  margin: 0px;
+}
