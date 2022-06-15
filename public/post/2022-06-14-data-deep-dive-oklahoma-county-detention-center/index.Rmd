@@ -105,11 +105,3 @@ Note that the categories for race and gender were determined by the jail's intak
 
 ### Explore the Data: Jail Population Over Time
 
-This is to demonstrate how we can insert Shiny apps into our blog posts. We can't write it directly within the .Rmd file of the post, so we have to embed it using an iframe. Fortunately `knitr` has a built-in function for that:
-
-```{r cool_shiny, echo=TRUE}
-knitr::include_app(url = "https://openjusticeok.shinyapps.io/kids-count-map-test/",
-                   height = 1000)
-```
-
-Note also that the size / position of the Shinyapp embed is determined by the iframe CSS rules in `/static/style.css`. If needed, we can set up seperate classes for different types / sizes of embedded apps.

@@ -47,3 +47,12 @@ Figure 1: A fancy pie chart.
 </p>
 </div>
 </div>
+<div id="shiny-apps" class="section level1">
+<h1>Shiny Apps</h1>
+<p>This is to demonstrate how we can insert Shiny apps into our blog posts. We can’t write it directly within the .Rmd file of the post, so we have to embed it using an iframe. Fortunately <code>knitr</code> has a built-in function for that:</p>
+<pre class="r"><code>knitr::include_app(url = &quot;https://openjusticeok.shinyapps.io/kids-count-map-test/&quot;,
+                   height = 1000)</code></pre>
+<iframe src="https://openjusticeok.shinyapps.io/kids-count-map-test/?showcase=0" width="672" height="1000" data-external="1">
+</iframe>
+<p>Note also that the size / position of the Shinyapp embed is determined by the iframe CSS rules in <code>/static/style.css</code>. If needed, we can set up seperate classes for different types / sizes of embedded apps.</p>
+</div>

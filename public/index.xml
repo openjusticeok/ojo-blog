@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Open Justice Oklahoma</title>
+    <title>OJO Data Blog on Open Justice Oklahoma Data Blog</title>
     
     
     
     <link>/</link>
-    <description>Recent content on Open Justice Oklahoma</description>
+    <description>Recent content in OJO Data Blog on Open Justice Oklahoma Data Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 14 Jun 2022 00:00:00 +0000</lastBuildDate>
@@ -137,7 +137,7 @@ This theme is pretty basic and covers all of the essentials. All you have to do 
     </item>
     
     <item>
-      <title>Open Justice Oklahoma Contact Info</title>
+      <title>OJO Research Team</title>
       <link>/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -150,7 +150,7 @@ This theme is pretty basic and covers all of the essentials. All you have to do 
         
         
         
-          Open Justice Oklahoma Team Ryan Gentzler – Research Director Ryan Gentzler is the Director of Open Justice Oklahoma. For over two years, Ryan served as a Policy Analyst focused on criminal justice at Oklahoma Policy Institute, where he was responsible for research on topics including sentencing, incarceration, court fines and fees, and pretrial detention. Open Justice Oklahoma grew out of Ryan’s groundbreaking analysis of court records, which was used to inform critical policy debates.
+          Ryan Gentzler &amp;ndash; Research Director # Ryan Gentzler is the Director of Open Justice Oklahoma. For over two years, Ryan served as a Policy Analyst focused on criminal justice at Oklahoma Policy Institute, where he was responsible for research on topics including sentencing, incarceration, court fines and fees, and pretrial detention. Open Justice Oklahoma grew out of Ryan&amp;rsquo;s groundbreaking analysis of court records, which was used to inform critical policy debates.
           
         
         </description>

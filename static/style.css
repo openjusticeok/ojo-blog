@@ -1,3 +1,4 @@
+/* Light and dark mode for links */
 body.light-theme a {
   color: #000000;
 }
@@ -6,6 +7,7 @@ body.dark-theme a {
   color: #FFC107;
 }
 
+/* Light and dark mode for post titles */
 body.light-theme .post-title {
   color: #000000;
 }
@@ -27,6 +29,10 @@ sup {
   margin: 0px;
 }
 
+.logo__cursor {
+  background: #FFC107;
+}
+
 .left {
   float: left;
   margin: 0px;
@@ -37,8 +43,77 @@ sup {
   margin: auto;
 }
 
+/* for embedded shinyapps */
 iframe {
-  display: block; 
+  display: block;
   margin-left: -25%;
   width: 150%;
 }
+
+/* Homepage specific stuff */
+.homepage-recents iframe {
+  margin: auto;
+}
+
+.dark-theme .homepage-header {
+ color: #FFC107;
+}
+
+.dark-theme .homepage-content h3 {
+ color: #FFC107;
+}
+
+.homepage-content {
+  display: flex; 
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.homepage-blurb {
+ float: left;
+ margin-left: 10px;
+ margin-right: 10px;
+ width: 20%;
+ text-align: center;
+}
+
+.homepage-recents {
+ float: left;
+ margin-left: 60px;
+ margin-right: 60px;
+ width: 30%;
+ text-align: left;
+}
+
+/* Phone adjustments */
+@media only screen and (max-width: 768px) {
+  .homepage-blurb {
+    width: 100%;
+  }
+  
+  .homepage-recents {
+    width: 100%;
+  }
+  
+}
+
+.homepage-blurb button {
+  background-color: #FFC107;
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  width: 80%;
+}
+
+/* Add a background color on hover */
+.dark-theme .homepage-blurb button:hover {
+  background-color: #ffffff;
+}
+
+.light-theme .homepage-blurb button:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+
+

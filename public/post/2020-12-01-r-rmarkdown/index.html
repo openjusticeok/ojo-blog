@@ -4,7 +4,7 @@
     
       <title>
         A Fancy R Markdown Post ::
-        Open Justice Oklahoma — Unlocking the black box of Oklahoma&#39;s criminal justice system
+        Open Justice Oklahoma Data Blog — subtitle_test
       </title>
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -62,7 +62,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/2020-12-01-r-rmarkdown/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-12-01T21:13:14-05:00" />
-<meta property="article:modified_time" content="2020-12-01T21:13:14-05:00" /><meta property="og:site_name" content="Open Justice Oklahoma" />
+<meta property="article:modified_time" content="2020-12-01T21:13:14-05:00" /><meta property="og:site_name" content="Open Justice Oklahoma Data Blog" />
 
 
 
@@ -81,7 +81,11 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
   style="text-decoration: none;"
 >
   
-    <img src="/img/ojo-logo-inverted-transparent.png" alt="Open Justice Oklahoma" />
+    <img src="/img/ojo-logo-yellow-cropped.png" alt="Open Justice Oklahoma" />
+    <span class="logo__text"
+      >Open Justice Oklahoma</span
+    >
+    <span class="logo__cursor"></span>
     
 </a>
 
@@ -92,11 +96,11 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
     
       
         
-          <li><a href="/about">About Us</a></li>
+          <li><a href="/archive">Archives</a></li>
         
       
         
-          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/contact">Our Team</a></li>
         
       
       
@@ -106,11 +110,11 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
   <ul class="menu__inner menu__inner--mobile">
     
       
-        <li><a href="/about">About Us</a></li>
+        <li><a href="/archive">Archives</a></li>
       
     
       
-        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/contact">Our Team</a></li>
       
     
   </ul>
@@ -171,7 +175,7 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
 
       
         <span class="post-read-time"
-          >— 1 min read</span
+          >— 2 min read</span
         >
       
     </div>
@@ -234,6 +238,15 @@ Figure 1: A fancy pie chart.
 </p>
 </div>
 </div>
+<div id="shiny-apps" class="section level1">
+<h1>Shiny Apps</h1>
+<p>This is to demonstrate how we can insert Shiny apps into our blog posts. We can’t write it directly within the .Rmd file of the post, so we have to embed it using an iframe. Fortunately <code>knitr</code> has a built-in function for that:</p>
+<pre class="r"><code>knitr::include_app(url = &quot;https://openjusticeok.shinyapps.io/kids-count-map-test/&quot;,
+                   height = 1000)</code></pre>
+<iframe src="https://openjusticeok.shinyapps.io/kids-count-map-test/?showcase=0" width="672" height="1000" data-external="1">
+</iframe>
+<p>Note also that the size / position of the Shinyapp embed is determined by the iframe CSS rules in <code>/static/style.css</code>. If needed, we can set up seperate classes for different types / sizes of embedded apps.</p>
+</div>
 
     </div>
     
@@ -287,7 +300,11 @@ Figure 1: A fancy pie chart.
   style="text-decoration: none;"
 >
   
-    <img src="/img/ojo-logo-inverted-transparent.png" alt="Open Justice Oklahoma" />
+    <img src="/img/ojo-logo-yellow-cropped.png" alt="Open Justice Oklahoma" />
+    <span class="logo__text"
+      >Open Justice Oklahoma</span
+    >
+    <span class="logo__cursor"></span>
     
 </a>
 

@@ -11,6 +11,7 @@ params:
   defaultTheme: dark
   showMenuItems: 2
   showReadingTime: yes
+  custom_css: "style.css"
 languages:
   en:
     copyright: ''
@@ -19,24 +20,27 @@ languages:
     keywords: ''
     menu:
       main:
-        - identifier: about
-          name: About Us
-          url: /about
+        - identifier: archive
+          name: Archives
+          url: /archive
+        # - identifier: about
+        #   name: About Us
+        #   url: /about
         - identifier: contact
-          name: Contact Us
+          name: Our Team
           url: /contact
-    menuMore: Show more
+    menuMore: More
     minuteReadingTime: min read
     newerPosts: Newer posts
     olderPosts: Older posts
     params:
       logo:
-        # logoHomeLink: "https://openjustice.okpolicy.org/"
-        # logoText: Open Justice Oklahoma
-        path: "/img/ojo-logo-inverted-transparent.png"
+        # logoHomeLink: "https://openjustice.okpolicy.org/" 
+        logoText: Open Justice Oklahoma
+        path: "/img/ojo-logo-yellow-cropped.png"
         alt: "Open Justice Oklahoma"
     readMore: Read more
     readOtherPosts: Read other posts
-    subtitle: Unlocking the black box of Oklahoma's criminal justice system
-    title: Open Justice Oklahoma
+    subtitle: subtitle_test
+    title: Open Justice Oklahoma Data Blog
     writtenBy: Written by

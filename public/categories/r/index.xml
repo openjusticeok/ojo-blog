@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>R on Open Justice Oklahoma</title>
+    <title>R on Open Justice Oklahoma Data Blog</title>
     
     
     
     <link>/categories/r/</link>
-    <description>Recent content in R on Open Justice Oklahoma</description>
+    <description>Recent content in R on Open Justice Oklahoma Data Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 01 Dec 2020 21:13:14 -0500</lastBuildDate>

@@ -1,0 +1,78 @@
+{{ define "main" }}
+    <main aria-role="main">
+      <header class="homepage-header">
+        <h1>{{.Title}}</h1>
+        {{ with .Params.logo}}
+        <center><img src={{.}}></center>
+        {{ end }}
+        {{ with .Params.subtitle }}
+        <span class="subtitle"><h2>{{.}}</h2></span>
+        {{ end }}
+      </header>
+
+      <div class="homepage-content">
+        <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
+        <span class="homepage-blurb">
+          <h3> Who We Are: </h3>
+          Open Justice Oklahoma (OJO) seeks to improve understanding of our justice system through analysis of public data.
+          Working closely with justice system stakeholders and advocates, we use cutting-edge methods to identify problems, craft solutions, and measure reform outcomes.
+          Our goal is to provide all Oklahomans with a more complete understanding of how our justice system operates and how we can use it to reduce crime, protect public safety, and improve rehabilitation. <br><br>
+          Open Justice Oklahoma is a program of the <a href="https://okpolicy.org/", target="_blank"> Oklahoma Policy Institute </a>.
+        </span>
+        <span class="homepage-blurb">
+          <h3> What We Do: </h3>
+          OJO gathers, cleans, and standardizes data from various sources, including jail, court, and corrections records. We use that data to produce analyses and tools for several different audiences:<br><br>
+          <ul, style="text-align: left;">
+            <li> Public data tools that allow advocates, journalists, and the public to understand broad trends in local justice systems, </li>
+            <li> Stakeholder tools that provide insights to allow prosecutors, judges, defense attorneys, and others to understand the effects of their policies and practices, and </li>
+            <li> Practitioner tools that help justice-related nonprofits and others to understand the needs and refine their approaches to rehabilitation. </li>
+          </ul>
+        </span>
+        <span class="homepage-blurb">
+          <h3> Focus Areas: </h3>
+          We study the criminal justice system in its entirety, from arrest to release.
+          Click on one of our areas of interest below to see related publications and projects: <br><br>
+          <div style="display: block; padding: 10px 24px;">
+            <center><button> Court Filings </button>
+            <button> Fines & Fees </button>
+            <button> Evictions </button>
+            <button> Local Jails </button>
+            <button> State & Federal Prisons </button></center>
+          </div>
+          </span>
+        </div>
+
+        <div class="homepage-content">
+          <span class="homepage-recents">
+            <h3><center> Recent Tweets: </center></h3>
+            <a class="twitter-timeline" data-height="400" data-dnt="true" data-theme="dark" href="https://twitter.com/OpenJusticeOK?ref_src=twsrc%5Etfw">Tweets by OpenJusticeOK</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          </span>
+
+          <span class="homepage-recents">
+            <h3><center> Recent Posts: </center></h3>
+            {{ range first 3 .Site.RegularPages }}
+            <div class="archive__post">
+              <h3 class="archive__post-title">
+                <a href="{{ .Permalink }}">{{ .Title }}</a>
+              </h3>
+              <div class="archive__post-meta">
+                <span class="archive__post-date">
+                  {{ .Date.Format ($.Site.Params.DateFormatList | default "2006-01-02") }}
+                </span>
+                {{ with .Params.Author }}
+                  <span class="archive__post-author">—
+                    {{ $.Site.Params.WrittenBy | default "Written by" }}
+                    {{ . }}
+                  </span>
+                  {{ end }}
+                  {{ if $.Site.Params.ShowReadingTime }}
+                  <span class="archive__post-read-time">— {{ .ReadingTime }}
+                    {{ $.Site.Params.MinuteReadingTime | default "min read" }}</span>
+                    {{ end }}
+                  </div>
+                </div>
+                {{ end }}
+          </span>
+
+        </main>
+{{ end }}

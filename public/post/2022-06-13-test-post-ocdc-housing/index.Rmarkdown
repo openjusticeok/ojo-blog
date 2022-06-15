@@ -3,6 +3,7 @@ title: "Stat Spotlight: Homelessness in Local Jails"
 author: 'Andrew Bell'
 date: '2022-06-13'
 description: "Data from the Oklahoma County Detention Center sheds light on the issue of homelessness among incarcerated people in Oklahoma."
+kind: page
 slug: []
 categories: [Jails, Housing]
 tags: [Jails, OCDC, Oklahoma County, Housing, Homelessness]
