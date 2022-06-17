@@ -8,7 +8,7 @@ markup:
       unsafe: true
 params:
   contentTypeName: post
-  defaultTheme: dark
+  defaultTheme: light
   showMenuItems: 2
   showReadingTime: yes
   custom_css: "style.css"
@@ -23,12 +23,12 @@ languages:
         - identifier: archive
           name: Archives
           url: /archive
-        # - identifier: about
-        #   name: About Us
-        #   url: /about
         - identifier: contact
-          name: Our Team
+          name: Contact Us
           url: /contact
+        - identifier: okpi
+          name: Oklahoma Policy Institute
+          url: https://okpolicy.org
     menuMore: More
     minuteReadingTime: min read
     newerPosts: Newer posts
@@ -41,6 +41,6 @@ languages:
         alt: "Open Justice Oklahoma"
     readMore: Read more
     readOtherPosts: Read other posts
-    subtitle: subtitle_test
+    subtitle: Unlocking the black box of our criminal justice system
     title: Open Justice Oklahoma Data Blog
     writtenBy: Written by

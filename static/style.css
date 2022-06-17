@@ -16,6 +16,12 @@ body.dark-theme .post-title {
   color: #FFC107;
 }
 
+/* */
+
+.content {
+  margin-top: 0px;
+}
+
 sup {
   color: #FFC107;
 }
@@ -55,8 +61,12 @@ iframe {
   margin: auto;
 }
 
-.dark-theme .homepage-header {
- color: #FFC107;
+.homepage-header {
+ color: #ffffff;
+ margin-top: 0px;
+ padding-top: 3%;
+ padding-bottom: 3%;
+ background-image: url('img/prison-2.jpg');
 }
 
 .dark-theme .homepage-content h3 {
@@ -67,6 +77,7 @@ iframe {
   display: flex; 
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 0px;
 }
 
 .homepage-blurb {
@@ -93,6 +104,14 @@ iframe {
   
   .homepage-recents {
     width: 100%;
+  }
+  
+  .homepage-header {
+    background-image: none;
+  }
+  
+  .light-theme .homepage-header {
+    color: #000000;
   }
   
 }

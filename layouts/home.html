@@ -45,12 +45,12 @@
         <div class="homepage-content">
           <span class="homepage-recents">
             <h3><center> Recent Tweets: </center></h3>
-            <a class="twitter-timeline" data-height="400" data-dnt="true" data-theme="dark" href="https://twitter.com/OpenJusticeOK?ref_src=twsrc%5Etfw">Tweets by OpenJusticeOK</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <a class="twitter-timeline" data-height="400" data-dnt="true" data-theme="light" href="https://twitter.com/OpenJusticeOK?ref_src=twsrc%5Etfw">Tweets by OpenJusticeOK</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </span>
 
           <span class="homepage-recents">
             <h3><center> Recent Posts: </center></h3>
-            {{ range first 3 .Site.RegularPages }}
+            {{ range first 4 .Site.RegularPages }}
             <div class="archive__post">
               <h3 class="archive__post-title">
                 <a href="{{ .Permalink }}">{{ .Title }}</a>

@@ -19,6 +19,7 @@ library(ggthemes)
 library(tidyverse)
 library(plotly)
 library(shiny)
+
 options(scipen = 999)
 
 knitr::opts_chunk$set(warning = FALSE, 
@@ -66,23 +67,23 @@ plot_pop <- daily_pop |>
   # geom_vline(xintercept = as.numeric(ymd("2018-7-01")), linetype = "dashed", color = "green") +
   # annotate(geom = "text", color = "green", label = " SQ 787 Effective Date", x = ymd("2018-7-01"), y = 1200) +
   labs(
-    title = "Oklahoma County Jail Population, 2016-2022",
     x = "Date",
     y = "OCDC Jail Population"
   ) +
-  theme(
-    text = element_text(family = "Ubuntu Mono"),
-    plot.title = element_text(hjust = 0.5, color = "white"),
-    plot.subtitle = element_text(hjust = 0.5, color = "white"),
-    panel.background = element_rect(fill='transparent'), #transparent panel bg
-    plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
-    panel.grid.major = element_line(color = "black"),
-    panel.grid.minor = element_blank(), #remove minor gridlines
-    legend.background = element_rect(fill='transparent'), #transparent legend bg
-    legend.box.background = element_rect(fill='transparent'), #transparent legend panel,
-    axis.text = element_text(color = "white"),
-    axis.title = element_text(color = "white")
-  ) 
+  theme_fivethirtyeight()
+  # theme(
+  #   text = element_text(family = "Ubuntu Mono"),
+  #   plot.title = element_text(hjust = 0.5, color = "white"),
+  #   plot.subtitle = element_text(hjust = 0.5, color = "white"),
+  #   panel.background = element_rect(fill='transparent'), #transparent panel bg
+  #   plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
+  #   panel.grid.major = element_line(color = "black"),
+  #   panel.grid.minor = element_blank(), #remove minor gridlines
+  #   legend.background = element_rect(fill='transparent'), #transparent legend bg
+  #   legend.box.background = element_rect(fill='transparent'), #transparent legend panel,
+  #   axis.text = element_text(color = "white"),
+  #   axis.title = element_text(color = "white")
+  # ) 
 
 ggplotly(plot_pop, tooltip = "text") |>
   config(displayModeBar = FALSE)
@@ -105,3 +106,4 @@ Note that the categories for race and gender were determined by the jail's intak
 
 ### Explore the Data: Jail Population Over Time
 
+More content.
