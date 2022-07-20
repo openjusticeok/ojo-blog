@@ -1,6 +1,6 @@
 ---
 layout: list
-title: Archive
+title: Blog
 type: archive
 url: /archive
 ---

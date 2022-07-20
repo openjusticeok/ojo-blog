@@ -21,7 +21,7 @@ languages:
     menu:
       main:
         - identifier: archive
-          name: Archives
+          name: Blog
           url: /archive
         - identifier: contact
           name: Contact Us
@@ -29,6 +29,9 @@ languages:
         - identifier: okpi
           name: Oklahoma Policy Institute
           url: https://okpolicy.org
+        - identifier: services
+          name: Data Services and Consulting
+        - url: /services
     menuMore: More
     minuteReadingTime: min read
     newerPosts: Newer posts
