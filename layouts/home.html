@@ -1,14 +1,35 @@
 {{ define "main" }}
     <main aria-role="main">
       <header class="homepage-header">
-        <h1>{{.Title}}</h1>
+        <!-- New version, no title / subtitle 
+        {{ with .Params.logo }}
+        <center><img src={{.}}></center>
+        {{ partial "stat-carousel.html"}}
+        {{ end }}
+        -->
+        
+        <!-- Old version, w/ title and subtitle -->
+        <h1>{{ .Title }}</h1>
         {{ with .Params.logo}}
         <center><img src={{.}}></center>
+        
         {{ end }}
         {{ with .Params.subtitle }}
+        
         <span class="subtitle"><h2>{{.}}</h2></span>
+        
+        {{ partial "stat-carousel.html"}}
         {{ end }}
+
       </header>
+      
+      <div class="homepage-whois">
+        <h3> About Open Justice Oklahoma </h3>
+      Open Justice Oklahoma (OJO) seeks to improve understanding of our justice system through analysis of public data. Working closely with justice system stakeholders and advocates, we use cutting-edge methods to identify problems, craft solutions, and measure reform outcomes. Our goal is to provide all Oklahomans with a more complete understanding of how our justice system operates and how we can use it to reduce crime, protect public safety, and improve rehabilitation. <br><br>
+      Open Justice Oklahoma is a program of the <a href="https://okpolicy.org/", target="_blank"> Oklahoma Policy Institute </a>.
+      </div>
+      
+      <hr>
 
       <div class="homepage-content">
         <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
@@ -17,7 +38,7 @@
           Open Justice Oklahoma (OJO) seeks to improve understanding of our justice system through analysis of public data.
           Working closely with justice system stakeholders and advocates, we use cutting-edge methods to identify problems, craft solutions, and measure reform outcomes.
           Our goal is to provide all Oklahomans with a more complete understanding of how our justice system operates and how we can use it to reduce crime, protect public safety, and improve rehabilitation. <br><br>
-          Open Justice Oklahoma is a program of the <a href="https://okpolicy.org/", target="_blank"> Oklahoma Policy Institute </a>.
+          
         </span>
         <span class="homepage-blurb">
           <h3> What We Do: </h3>

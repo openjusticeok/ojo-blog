@@ -1,0 +1,6 @@
+---
+logo: "/img/home-logo.png"
+title: Open Justice Oklahoma
+subtitle: Criminal Justice Data Blog
+layout: home
+---

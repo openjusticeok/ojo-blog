@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;900&display=swap');
+
 /* Light and dark mode for links */
 body.light-theme a {
   color: #000000;
@@ -15,8 +17,6 @@ body.light-theme .post-title {
 body.dark-theme .post-title {
   color: #FFC107;
 }
-
-/* */
 
 .content {
   margin-top: 0px;
@@ -64,9 +64,10 @@ iframe {
 .homepage-header {
  color: #ffffff;
  margin-top: 0px;
- padding-top: 3%;
- padding-bottom: 3%;
+ padding-top: 2%;
+ padding-bottom: 2%;
  background-image: url('img/prison-2.jpg');
+ font-family: 'Roboto', sans-serif;
 }
 
 .dark-theme .homepage-content h3 {
@@ -85,7 +86,14 @@ iframe {
  margin-left: 10px;
  margin-right: 10px;
  width: 20%;
- text-align: center;
+ text-align: left;
+}
+
+.homepage-whois {
+  margin: auto;
+  width: 60%;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .homepage-recents {
@@ -96,7 +104,18 @@ iframe {
  text-align: left;
 }
 
-/* Phone adjustments */
+.homepage-stats {
+  margin: auto;
+  width: 60%;
+  flex-wrap: wrap;
+  padding-top: 5%;
+}
+
+.splide__slide {
+  padding-bottom: 40px;
+}
+
+/* Phone adjustments -----------------------------------------------------------*/
 @media only screen and (max-width: 768px) {
   .homepage-blurb {
     width: 100%;

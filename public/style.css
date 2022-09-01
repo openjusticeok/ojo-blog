@@ -64,8 +64,8 @@ iframe {
 .homepage-header {
  color: #ffffff;
  margin-top: 0px;
- padding-top: 3%;
- padding-bottom: 3%;
+ padding-top: 12%;
+ padding-bottom: 12%;
  background-image: url('img/prison-2.jpg');
 }
 
@@ -96,7 +96,18 @@ iframe {
  text-align: left;
 }
 
-/* Phone adjustments */
+.homepage-stats {
+  margin: auto;
+  width: 70%;
+  flex-wrap: wrap;
+  padding: 10px;
+}
+
+.splide__slide {
+  padding-bottom: 40px;
+}
+
+/* Phone adjustments -----------------------------------------------------------*/
 @media only screen and (max-width: 768px) {
   .homepage-blurb {
     width: 100%;

@@ -1,0 +1,44 @@
+<script src="/splide.min.js"></script>
+
+<link rel="stylesheet" href="/splide.min.css">
+
+<!-- Options for splide: https://splidejs.com/guides/options/ -->
+<script>
+  document.addEventListener( 'DOMContentLoaded', function() {
+    var splide = new Splide( '.splide', {
+      rewind: true,
+      autoplay: true
+    });
+    splide.mount();
+  } );
+</script>
+
+<div class="homepage-stats">
+
+<section class="splide" aria-label="Splide Basic HTML Example">
+  
+  <div class="splide__track">
+		<ul class="splide__list">
+			<li class="splide__slide">
+			  <h1> 13,000 </h1>
+			  <h3>the number of Oklahomans who were evicted from their homes in 2020.</h3>
+			  </li>
+			<li class="splide__slide">
+			  <h1> $18,000 </h1>
+			  <h3>the average court debt accrued in a misdemeanor case in Oklahoma.</h3>
+			</li>
+			<li class="splide__slide">
+			  <h1> 27 </h1>
+			  <h3>the number of something else</h3>
+			  </li>
+		</ul>
+  </div>
+  
+    <button class="splide__toggle" type="button">
+	  <span class="splide__toggle__play">Play</span>
+	  <span class="splide__toggle__pause">Pause</span>
+  </button>
+  
+</section>
+
+</div>

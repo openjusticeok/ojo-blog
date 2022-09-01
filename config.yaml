@@ -14,6 +14,8 @@ params:
   custom_css: "style.css"
 languages:
   en:
+    subtitle: data blog
+    title: OJO
     copyright: ''
     dateFormatList: '2006-01-02'
     dateFormatSingle: '2006-01-02'
@@ -41,6 +43,4 @@ languages:
         alt: "Open Justice Oklahoma"
     readMore: Read more
     readOtherPosts: Read other posts
-    subtitle: Unlocking the black box of our criminal justice system
-    title: Open Justice Oklahoma Data Blog
     writtenBy: Written by
