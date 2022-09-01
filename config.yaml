@@ -23,10 +23,13 @@ languages:
     menu:
       main:
         - identifier: archive
-          name: Archives
+          name: Data Blog
           url: /archive
+        - identifier: about
+          name: About OJO
+          url: /about
         - identifier: contact
-          name: Contact Us
+          name: Staff
           url: /contact
         - identifier: okpi
           name: Oklahoma Policy Institute
