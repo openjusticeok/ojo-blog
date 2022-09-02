@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;900&display=swap');
+
 /* Light and dark mode for links */
 body.light-theme a {
   color: #000000;
@@ -16,7 +18,9 @@ body.dark-theme .post-title {
   color: #FFC107;
 }
 
-/* */
+body.dark-theme .archive h1 {
+  color: #FFC107;
+}
 
 .content {
   margin-top: 0px;
@@ -50,10 +54,16 @@ sup {
 }
 
 /* for embedded shinyapps */
-iframe {
+.shinyapp-med {
   display: block;
   margin-left: -25%;
   width: 150%;
+}
+
+.shinyapp-large {
+  display: block;
+  margin-left: -50%;
+  width: 200%;
 }
 
 /* Homepage specific stuff */
@@ -64,9 +74,10 @@ iframe {
 .homepage-header {
  color: #ffffff;
  margin-top: 0px;
- padding-top: 12%;
- padding-bottom: 12%;
- background-image: url('img/prison-2.jpg');
+ padding-top: 2%;
+ padding-bottom: 2%;
+ background-image: url('img/prison-3.jpg');
+ font-family: 'Roboto', sans-serif;
 }
 
 .dark-theme .homepage-content h3 {
@@ -85,7 +96,14 @@ iframe {
  margin-left: 10px;
  margin-right: 10px;
  width: 20%;
- text-align: center;
+ text-align: left;
+}
+
+.homepage-whois {
+  margin: auto;
+  width: 60%;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .homepage-recents {
@@ -98,9 +116,10 @@ iframe {
 
 .homepage-stats {
   margin: auto;
-  width: 70%;
+  width: 60%;
   flex-wrap: wrap;
-  padding: 10px;
+  padding-top: 5%;
+  /* background-color: rgba(255, 255, 255, 0.3); */
 }
 
 .splide__slide {
