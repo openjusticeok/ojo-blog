@@ -3,6 +3,7 @@ title: 'Data Deep Dive: Oklahoma County Detention Center'
 author: Andrew Bell
 date: '2022-06-14'
 slug: []
+toc: true
 useRelativeCover: true
 cover: "/www/jail.png"
 categories:
@@ -40,10 +41,14 @@ book_data <- read_rds("./data/ocdc_books.rds")
 
 # daily_pop <- ojo_tbl(schema = "ocdc",
 #                      table = "daily_pop") |>
-#   collect() |>
-#   filter(day > ymd("2016-01-01"))
+#   collect() 
 # write_rds(daily_pop, "./data/daily_pop.rds")
-daily_pop <- read_rds("./data/daily_pop.rds")
+daily_pop <- read_rds("./data/daily_pop.rds") |>
+  filter(day >= ymd("2015-01-01"))
+
+start_date <- min(daily_pop$day)
+end_date <- max(daily_pop$day)
+total_bookings <- book_data |> n_distinct("book_num", na.rm = T)
 
 ```
 
@@ -59,7 +64,7 @@ The county's efforts at reforming the jail began in earnest in 2015, when the Gr
 
 One of their most impactful recommendations was in favor of the [2019 decision to strip the Oklahoma County Sheriff from control over the jail,](https://www.oklahoman.com/story/news/columns/2019/06/30/meet-the-members-of-the-oklahoma-county-jail-trust/60448068007/) which replaced them with the newly formed Jail Trust. The Trust remains in control of the day-to-day operations of the jail.
 
-The chart below shows how OCDC's population size has changed over the years. The data show a consistent decline from around 2016 to 2020, thanks in part to efforts like [State Question 780](https://okpolicy.org/sq-780-sq-781/) and [State Question 788](https://okpolicy.org/state-question-788-medical-marijuana-legalization-initiative/), which reduced penalties for some property and drug crimes and legalized medical marijuana. However, early success at reducing the jail's overcrowding has stalled in recent years.
+The chart below shows how OCDC's population size has changed as these events have unfolded. The data show a consistent decline in population size from around 2016 to 2020, thanks in part to efforts like [State Question 780](https://okpolicy.org/sq-780-sq-781/) and [State Question 788](https://okpolicy.org/state-question-788-medical-marijuana-legalization-initiative/), which reduced penalties for some property and drug crimes and legalized medical marijuana. However, early success at reducing the jail's overcrowding has stalled in recent years.
 
 ```{r, fig.cap="OCDC Daily Population Count at 12pm noon, 2016-2022"}
 # OCDC Daily Population
@@ -74,10 +79,16 @@ plot_pop <- daily_pop |>
   scale_y_continuous(limits = c(0, NA),
                      labels = scales::comma) +
   # # SQ lines
-  # geom_vline(xintercept = as.numeric(ymd("2017-7-01")), linetype = "dashed", color = "red") +
-  # annotate(geom = "text", color = "red", label = " SQ 780 Effective Date", x = ymd("2017-7-01"), y = 800) +
-  # geom_vline(xintercept = as.numeric(ymd("2018-7-01")), linetype = "dashed", color = "green") +
-  # annotate(geom = "text", color = "green", label = " SQ 788 Effective Date", x = ymd("2018-7-01"), y = 1200) +
+  geom_vline(xintercept = as.numeric(ymd("2017-7-01")), linetype = "dashed", color = "red") +
+  annotate(geom = "text", color = "red", label = " SQ 780\nEffective Date", 
+           x = ymd("2017-7-01"), y = 800) +
+  geom_vline(xintercept = as.numeric(ymd("2018-7-01")), linetype = "dashed", color = "green") +
+  annotate(geom = "text", color = "green", label = " SQ 788\nEffective Date", 
+           x = ymd("2018-7-01"), y = 1200) +
+  # # Jail trust line
+  geom_vline(xintercept = as.numeric(ymd("2020-07-01")), linetype = "dashed", color = "black") +
+  annotate(geom = "text", color = "black", label = " Jail Trust\nStart Date", 
+           x = ymd("2020-07-01"), y = 800) +
    theme_fivethirtyeight() +
   labs(title = "OCDC daily population count",
        y = "People incarcerated",
@@ -105,7 +116,7 @@ ggplotly(plot_pop, tooltip = "text") |>
 
 ```
 
-Despite the strides made, however, the jail is still mired in controversy and public criticism. It remains one of the deadliest jails in the country, [averaging 4.77 deaths per 1,000 inmates from 2016-2019 compared to a national average of 1.46](https://oklahomawatch.org/2021/02/09/oklahomas-jail-mortality-rate-ranks-second-in-nation/). Concerns about safety became even greater with the arrival of COVID-19, which is known to pose an [elevated threat to highly concentrated indoor areas like jails and prisons](https://okpolicy.org/reducing-our-incarceration-population-is-a-matter-of-public-safety-and-public-health/). On top of all of this, public trust in the jail's leadership has been deeply shaken by a number of scandals:
+Despite the strides made, however, the jail is still mired in controversy and public criticism. It remains one of the deadliest jails in the entire country, [averaging 4.77 deaths per 1,000 inmates from 2016-2019 compared to a national average of 1.46](https://oklahomawatch.org/2021/02/09/oklahomas-jail-mortality-rate-ranks-second-in-nation/). Concerns about safety became even greater with the arrival of COVID-19, which is known to pose an [elevated threat to highly concentrated indoor areas like jails and prisons](https://okpolicy.org/reducing-our-incarceration-population-is-a-matter-of-public-safety-and-public-health/). On top of all of this, public trust in the jail's leadership has been deeply shaken by a number of scandals:
 
 -   In February of 2022, Jail Administrator Greg Williams and his communications director were heard [bragging about COVID being the jail's "friend" because it brought in millions of dollars of funding and provided a convenient excuse to keep people from seeing the conditions inside the jail](https://kfor.com/news/local/i-dont-see-this-as-a-big-deal-jail-trust-members-react-after-jail-administrator-recorded-saying-covid-is-our-friend/).
 
@@ -121,10 +132,98 @@ As our community grapples with these problems, Open Justice Oklahoma is working 
 >
 > On the other hand, *prison* is where you go once you've been convicted and sentenced. Prisons are typically run by the state or federal government, and are designed to incarcerate people for long periods of time. While jails are almost always owned and operated by the government, prisons are sometimes run by private corporations -- in Oklahoma, privately run prisons include the Cimarron, Davis, and Lawton correctional facilities.
 
-## 2. Our data
+## 2. Data Overview
 
-## 3. Who is in the jail?
+### Where is this data from?
+
+Open Justice Oklahoma is able to draw data from OCDC's internal jail data system [*"Jailtracker"*](https://jailtracker.com/) as a result of our partnership with CJAC. Access to Jailtracker allows us to collect basic information about jail bookings, releases, and populations going back to 2014, which allows us to get a detailed, objective accounting of how things are going at the jail.
+
+### What does this data include?
+
+For all bookings into the jail since 2014, our data shows:
+
+-   Who was booked and when (name, jail ID, booking date and time, etc.)
+-   Demographic information about the person booked (race, gender, age, etc.)
+-   Jail-assigned classifications (minimum / medium / maximum security, etc.; "General Population", "Protected Custody", etc.)
+-   Release information (release date for those who have already been released, total length detained, etc.)
+
+These basic data points are available for all `r format(total_bookings, big.mark = ",")` bookings from `r start_date` to `r end_date`. However, due to the way Jailtracker is set up, there are other important data points that we are able to access only with limited consistency. These include:
+
+-   Charges for each booking
+-   Court status for each case / charge (e.g. pre-trial vs. sentenced)
+-   Bond amounts and types for each case / charge
+-   
+
+## 3. Who is in the jail, for how long?
+
+### Overview
+
+basic stats
+
+analysis of length of stay
+
+description of change 2014-2022
+
+### Demographics: Gender
+
+basic stats
+
+analysis of length of stay
+
+description of change 2014-2022
+
+### Demographics: Race
+
+basic stats
+
+analysis of length of stay
+
+description of change 2014-2022
+
+### Demographics: Age
+
+basic stats
+
+analysis of length of stay
+
+description of change 2014-2022
+
+### Other Factors: Housing
+
+basic stats
+
+analysis of length of stay
+
+frequent utilizers 
+
+description of change 2014-2022
+
+### Other Factors: Geography
+
+basic stats
+
+description of change 2014-2022
+
+analysis of length of stay
 
 ## 4. What kinds of charges are people being held on?
 
+basic descriptive stats
+
+an "average" case -- multiple charges, 
+
+most common headliner charges
+
+most common addon charges
+
+intersections with demographics, geography, housing, etc
+
 ## 5. What does the data say about bail?
+
+how bail works
+
+descriptive stats -- avg bail for different types of cases, etc?
+
+how many are there because they can't pay bail? staged by amount
+
+

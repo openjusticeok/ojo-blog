@@ -1,0 +1,232 @@
+---
+title: 'Data Deep Dive: Oklahoma County Detention Center'
+author: Andrew Bell
+date: '2022-10-18'
+categories:
+  - Jails
+tags:
+  - Jails
+  - OCDC
+  - Oklahoma County
+toc: yes
+useRelativeCover: yes
+cover: /www/jail.png
+runtime: shiny
+---
+
+```{r setup, include=FALSE}
+# Setup ========================================================================
+library(ojodb)
+library(ggthemes)
+library(tidyverse)
+library(plotly)
+library(shiny)
+
+options(scipen = 999)
+
+knitr::opts_chunk$set(warning = FALSE, 
+                      message = FALSE,
+                      echo = FALSE,
+                      fig.align = 'center',
+                      fig.showtext = TRUE,
+                      out.align = 'center')
+
+# OCDC Data
+# books <- ojo_tbl(schema = "ocdc",
+#                  table = "arrest") |>
+#   collect()
+# write_rds(books, "./data/ocdc_books.rds")
+book_data <- read_rds("./data/ocdc_books.rds")
+
+# daily_pop <- ojo_tbl(schema = "ocdc",
+#                      table = "daily_pop") |>
+#   collect() 
+# write_rds(daily_pop, "./data/daily_pop.rds")
+daily_pop <- read_rds("./data/daily_pop.rds") |>
+  filter(day >= ymd("2015-01-01"))
+
+start_date <- min(daily_pop$day)
+end_date <- max(daily_pop$day)
+total_bookings <- book_data |> n_distinct("book_num", na.rm = T)
+
+```
+
+*"Data Deep Dive" posts provide a broad overview of a particular dataset, policy area, or problem. This one covers Open Justice Oklahoma's Oklahoma county jail data, which includes information on the population, bookings, releases, etc. at the Oklahoma County Detention Center (OCDC) in Oklahoma City, Oklahoma.*
+
+------------------------------------------------------------------------
+
+[![Image from CNN](www/cnn.jpg)](https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F210328003024-oklahoma-county-jail-hostage-situation-0327.jpg)
+
+## 1. The Oklahoma County Detention Center
+
+Located in Oklahoma City, the **Oklahoma County Detention Center (OCDC)** is the biggest jail in the state. On an typical day, an average of around 1,500-1,600 people are held inside, most of them awaiting their day in court. The jail's population used to be much larger -- in 2016, the jail's population peaked at over 2,500 people, over double the jail's original intended capacity. However, reform efforts undertaken in the last few years have successfully begun to reverse this upward trend.
+
+The county's efforts at reforming the jail began in earnest in 2015, when the Greater OKC Chamber organized a task force to audit the criminal justice system. Among other things, they [partnered with the Vera Institute of Justice to produce a detailed report on overcrowding in the county jail](https://www.vera.org/publications/oklahoma-city-chamber-criminal-justice-task-force-report). This group eventually became the Oklahoma **Criminal Justice Advisory Council** (or **CJAC**) in 2018, with the goal of advising the county on how to implement the reforms suggested by the report.
+
+One of their most impactful recommendations was in favor of the [2019 decision to strip the Oklahoma County Sheriff from control over the jail,](https://www.oklahoman.com/story/news/columns/2019/06/30/meet-the-members-of-the-oklahoma-county-jail-trust/60448068007/) which replaced them with the newly formed Jail Trust. The Trust remains in control of the day-to-day operations of the jail.
+
+The chart below shows how OCDC's population size has changed as these events have unfolded. The data show a consistent decline in population size from around 2016 to 2020, thanks in part to efforts like [State Question 780](https://okpolicy.org/sq-780-sq-781/) and [State Question 788](https://okpolicy.org/state-question-788-medical-marijuana-legalization-initiative/), which reduced penalties for some property and drug crimes and legalized medical marijuana. However, early success at reducing the jail's overcrowding has stalled in recent years.
+
+```{r, fig.cap="OCDC Daily Population Count at 12pm noon, 2015-2022"}
+# OCDC Daily Population
+plot_pop <- daily_pop |>
+  ggplot(aes(x = day, 
+             y = pop,
+             text = paste0("Date: ", day, "<br>",
+                           "Population: ", format(pop, big.mark = ",")),
+             group = 1,
+             )) +
+  geom_line(color = "#FFC107") +
+  scale_y_continuous(limits = c(0, NA),
+                     labels = scales::comma) +
+  # # SQ lines
+  geom_vline(xintercept = as.numeric(ymd("2017-7-01")), linetype = "dashed", color = "red") +
+  annotate(geom = "text", color = "red", label = "SQ 780\nEffective Date", 
+           x = ymd("2017-7-01"), y = 800, hjust = 1.1) +
+  geom_vline(xintercept = as.numeric(ymd("2018-7-01")), linetype = "dashed", color = "green") +
+  annotate(geom = "text", color = "green", label = "SQ 788\nEffective Date", 
+           x = ymd("2018-7-01"), y = 1200, hjust = -0.1) +
+  # # Jail trust line
+  geom_vline(xintercept = as.numeric(ymd("2020-07-01")), linetype = "dashed", color = "black") +
+  annotate(geom = "text", color = "black", label = "Jail Trust\nTakes Control", 
+           x = ymd("2020-07-01"), y = 800, hjust = -0.1) +
+   theme_clean() +
+  labs(title = "OCDC daily population count",
+       y = "People incarcerated",
+       x = "Day")
+
+  # theme(
+  #   text = element_text(family = "Ubuntu Mono"),
+  #   plot.title = element_text(hjust = 0.5, color = "white"),
+  #   plot.subtitle = element_text(hjust = 0.5, color = "white"),
+  #   panel.background = element_rect(fill='transparent'), #transparent panel bg
+  #   plot.background = element_rect(fill='transparent', color=NA), #transparent plot bg
+  #   panel.grid.major = element_line(color = "black"),
+  #   panel.grid.minor = element_blank(), #remove minor gridlines
+  #   legend.background = element_rect(fill='transparent'), #transparent legend bg
+  #   legend.box.background = element_rect(fill='transparent'), #transparent legend panel,
+  #   axis.text = element_text(color = "white"),
+  #   axis.title = element_text(color = "white")
+  # ) 
+
+ggplotly(plot_pop, tooltip = "text") |>
+  config(displayModeBar = FALSE) |>
+  style(textposition = "right")
+  # layout(title = list(text = paste0("OCDC Daily Population Count", 
+  #                                   "<br><sup>", 
+  #                                   "Taken at 12pm noon each day, 2016- 2022", 
+  #                                   "</sup>")))
+
+```
+
+Despite the strides made, however, the jail is still mired in controversy and public criticism. It remains one of the deadliest jails in the entire country, [averaging 4.77 deaths per 1,000 inmates from 2016-2019 compared to a national average of 1.46](https://oklahomawatch.org/2021/02/09/oklahomas-jail-mortality-rate-ranks-second-in-nation/). Concerns about safety became even greater with the arrival of COVID-19, which is known to pose an [elevated threat to highly concentrated indoor areas like jails and prisons](https://okpolicy.org/reducing-our-incarceration-population-is-a-matter-of-public-safety-and-public-health/). On top of all of this, public trust in the jail's leadership has been deeply shaken by a number of scandals:
+
+-   In February of 2022, Jail Administrator Greg Williams and his communications director were heard [bragging about COVID being the jail's "friend" because it brought in millions of dollars of funding and provided a convenient excuse to keep people from seeing the conditions inside the jail](https://kfor.com/news/local/i-dont-see-this-as-a-big-deal-jail-trust-members-react-after-jail-administrator-recorded-saying-covid-is-our-friend/).
+
+-   In September of 2022, [a man who was in the process of suing the jail over allegations of torture was found dead in his cell](https://www.nbcnews.com/news/us-news/oklahoma-inmate-sued-alleged-baby-shark-torture-tactic-found-dead-cell-rcna47486). He was the 14th person to die in the jail in 2022.
+
+-   The mortality rate at the jail has not improved, and disturbing reports of [sexual assault and violence](https://nondoc.com/2022/09/15/group-asks-midwest-city-to-cut-ties-with-troubled-county-jail/) at the jail caused [Midwest City to withdraw from CJAC in October of 2022 and reconsider sending people to OCDC altogether](https://nondoc.com/2022/10/06/midwest-city-withdraws-from-cjac-edmond-renews-agreement/).
+
+As our community grapples with these problems, Open Justice Oklahoma is working with CJAC to provide reliable, open data on the jail and the people inside to decision-makers and to the public at large. We hope that everyone will be able to use this data to fuel much-needed discussions about the future of carceral policy in Oklahoma County.
+
+> ### Jails vs. Prisons:
+>
+> *Jail* is where you go right after you're placed under arrest. Jails are typically run by local government -- for example, OCDC is run by Oklahoma County. Very few people in jail are there serving a sentence; in fact, the vast majority of people in jails have not been convicted of any crime, and are there because they can't afford bond, weren't granted bond, and/or are awaiting a court date.
+>
+> On the other hand, *prison* is where you go once you've been convicted and sentenced. Prisons are typically run by the state or federal government, and are designed to incarcerate people for long periods of time. While jails are almost always owned and operated by the government, prisons are sometimes run by private corporations -- in Oklahoma, privately run prisons include the Cimarron, Davis, and Lawton correctional facilities.
+
+## 2. Data Overview
+
+### Where is this data from?
+
+Open Justice Oklahoma is able to draw data from OCDC's internal jail data system [*"Jailtracker"*](https://jailtracker.com/) as a result of our partnership with CJAC. Access to Jailtracker allows us to collect basic information about jail bookings, releases, and populations going back to 2014, which allows us to get a detailed, objective accounting of how things are going at the jail.
+
+### What does this data include?
+
+For all bookings into the jail since 2014, our data shows:
+
+-   Who was booked and when (name, jail ID, booking date and time, etc.),
+-   Demographic information about the person booked (race, gender, age, etc.),
+-   Jail-assigned classifications (minimum / medium / maximum security, etc.; "General Population", "Protected Custody", etc.), and
+-   Release information (release date for those who have already been released, total length detained, etc.).
+
+These basic data points are available for all `r format(total_bookings, big.mark = ",")` bookings from `r start_date` to `r end_date`. However, due to the way Jailtracker is set up, there are other important data points that we are able to access only with limited consistency. These include:
+
+-   Charges for each booking,
+-   Court status for each case / charge (e.g. pre-trial vs. sentenced),
+-   Bond amounts and types for each case / charge,
+-   Background information including housing status, home ZIP code, etc.
+
+We access Jailtracker and update these data points each week. You can see the most up-to-date information on our [OCDC Live Data Dashboard](https://cjac-dashboard-isk53p4yuq-uc.a.run.app/).
+
+## 3. Who is in the jail?
+
+### Overview
+
+basic stats
+
+analysis of length of stay
+
+description of change 2014-2022
+
+### Demographics: Gender
+
+basic stats
+
+analysis of length of stay
+
+description of change 2014-2022
+
+### Demographics: Race
+
+basic stats
+
+analysis of length of stay
+
+description of change 2014-2022
+
+### Demographics: Age
+
+basic stats
+
+analysis of length of stay
+
+description of change 2014-2022
+
+### Other Factors: Housing
+
+basic stats
+
+analysis of length of stay
+
+frequent utilizers
+
+description of change 2014-2022
+
+### Other Factors: Geography
+
+basic stats
+
+description of change 2014-2022
+
+analysis of length of stay
+
+## What kinds of charges are people being held on?
+
+basic descriptive stats
+
+an "average" case -- multiple charges,
+
+most common headliner charges
+
+most common addon charges
+
+intersections with demographics, geography, housing, etc
+
+## What does the data say about bail?
+
+how bail works
+
+descriptive stats -- avg bail for different types of cases, etc?
+
+how many are there because they can't pay bail? staged by amount

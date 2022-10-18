@@ -1,0 +1,6 @@
+---
+logo: "/img/ojo-logo-white-cropped.png"
+title: 'Open Justice Oklahoma Data Blog'
+subtitle: ''
+layout: home
+---

@@ -1,0 +1,15 @@
+---
+title: 'Dashboard: Oklahoma County Jail'
+author: Andrew Bell
+date: '2022-09-02'
+slug: []
+categories:
+  - Jails
+  - OCDC
+  - OKC
+tags:
+  - Jails
+  - Oklahoma County
+---
+
+<iframe class="shinyapp-large" src="https://cjac-dashboard-isk53p4yuq-uc.a.run.app/" height="1000"></iframe>

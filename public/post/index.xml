@@ -9,10 +9,30 @@
     <description>Recent content in Posts on OJO</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 18 Oct 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Data Deep Dive: Oklahoma County Detention Center</title>
+      <link>/post/2022-10-18-data-deep-dive-oklahoma-county-detention-center/</link>
+      <pubDate>Tue, 18 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2022-10-18-data-deep-dive-oklahoma-county-detention-center/</guid>
+      <description>
+        
+          &lt;img src=&#34;/post/2022-10-18-data-deep-dive-oklahoma-county-detention-center//www/jail.png&#34;/&gt;
+          
+        
+        
+        
+          “Data Deep Dive” posts provide a broad overview of a particular dataset, policy area, or problem. This one covers Open Justice Oklahoma’s Oklahoma county jail data, which includes information on the population, bookings, releases, etc. at the Oklahoma County Detention Center (OCDC) in Oklahoma City, Oklahoma.
+1. The Oklahoma County Detention Center # Located in Oklahoma City, the Oklahoma County Detention Center (OCDC) is the biggest jail in the state.
+          
+        
+        </description>
+    </item>
     
     <item>
       <title>Stat Spotlight: Eviction Filings Are Soaring in Oklahoma County</title>
@@ -29,26 +49,6 @@
         
         
           Figure 1: Eviction filings are on the rise. Eviction filings across the state have been rising steadily since the onset of the COVID-19 Pandemic, despite eviction moratoriums and assistance programs aimed at preventing people from losing their homes due to the crisis. In Oklahoma County in particular, though, it seems that the dam may have finally broken – in February of 2022, Oklahoma County landlords filed 2,188 eviction cases, which is more than any month on record.
-          
-        
-        </description>
-    </item>
-    
-    <item>
-      <title>Data Deep Dive: Oklahoma County Detention Center</title>
-      <link>/post/2022-06-14-data-deep-dive-oklahoma-county-detention-center/</link>
-      <pubDate>Tue, 14 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/post/2022-06-14-data-deep-dive-oklahoma-county-detention-center/</guid>
-      <description>
-        
-          &lt;img src=&#34;/post/2022-06-14-data-deep-dive-oklahoma-county-detention-center//www/jail.png&#34;/&gt;
-          
-        
-        
-        
-          “Data Deep Dive” posts provide a broad overview of a particular dataset, policy area, or problem. This one covers Open Justice Oklahoma’s Oklahoma county jail data, which includes information on the population, bookings, releases, etc. at the Oklahoma County Detention Center (OCDC) in Oklahoma City, Oklahoma.
-1. The Oklahoma County Detention Center Located in Oklahoma City, the Oklahoma County Detention Center (OCDC) is the biggest jail in the state. On an typical day, an average of around 1,500-1,600 people are held inside, most of them awaiting their day in court.
           
         
         </description>
