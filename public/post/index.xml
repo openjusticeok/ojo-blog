@@ -48,7 +48,7 @@
         
         
         
-          Figure 1: Eviction filings are on the rise. Eviction filings across the state have been rising steadily since the onset of the COVID-19 Pandemic, despite eviction moratoriums and assistance programs aimed at preventing people from losing their homes due to the crisis. In Oklahoma County in particular, though, it seems that the dam may have finally broken – in February of 2022, Oklahoma County landlords filed 2,188 eviction cases, which is more than any month on record.
+          Figure 1: Eviction filings are on the rise. Eviction filings across the state have been rising steadily since the onset of the COVID-19 Pandemic, despite eviction moratoriums and assistance programs aimed at preventing people from losing their homes due to the crisis. In Oklahoma County in particular, though, it seems that the dam may have finally broken – in February of 2022, Oklahoma County landlords filed 2,200 eviction cases, which is more than any month on record.
           
         
         </description>
@@ -87,9 +87,9 @@
         
         
         
-          R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+          R Markdown # This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.
           
         
         </description>

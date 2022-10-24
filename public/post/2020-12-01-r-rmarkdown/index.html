@@ -11,9 +11,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta
   name="description"
-  content="R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+  content="R Markdown # This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu."
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42."
 />
 <meta
   name="keywords"
@@ -49,16 +49,16 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="A Fancy R Markdown Post"/>
-<meta name="twitter:description" content="R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+<meta name="twitter:description" content="R Markdown # This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu."/>
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42."/>
 
 
 
 <meta property="og:title" content="A Fancy R Markdown Post" />
-<meta property="og:description" content="R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+<meta property="og:description" content="R Markdown # This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
 You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu." />
+summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/post/2020-12-01-r-rmarkdown/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2020-12-01T21:13:14-05:00" />
@@ -235,58 +235,60 @@ summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
 
     <div class="post-content">
       
-      
-
-
-<div id="r-markdown" class="section level1">
-<h1>R Markdown</h1>
-<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+      <div>
+        <h1 id="r-markdown">
+  R Markdown
+  <a href="#r-markdown" class="h-anchor" aria-hidden="true">#</a>
+</h1>
+<p>This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com">http://rmarkdown.rstudio.com</a>.</p>
 <p>You can embed an R code chunk like this:</p>
-<pre class="r"><code>summary(cars)
-##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00
-fit &lt;- lm(dist ~ speed, data = cars)
-fit
-## 
-## Call:
-## lm(formula = dist ~ speed, data = cars)
-## 
-## Coefficients:
-## (Intercept)        speed  
-##     -17.579        3.932</code></pre>
-</div>
-<div id="including-plots" class="section level1">
-<h1>Including Plots</h1>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">summary</span>(cars)
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##      speed           dist       </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  Min.   : 4.0   Min.   :  2.00  </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  1st Qu.:12.0   1st Qu.: 26.00  </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  Median :15.0   Median : 36.00  </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  Mean   :15.4   Mean   : 42.98  </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  3rd Qu.:19.0   3rd Qu.: 56.00  </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##  Max.   :25.0   Max.   :120.00</span>
+</span></span><span style="display:flex;"><span>fit <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">lm</span>(dist <span style="color:#f92672">~</span> speed, data <span style="color:#f92672">=</span> cars)
+</span></span><span style="display:flex;"><span>fit
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Call:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## lm(formula = dist ~ speed, data = cars)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Coefficients:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## (Intercept)        speed  </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##     -17.579        3.932</span>
+</span></span></code></pre></div><h1 id="including-plots">
+  Including Plots
+  <a href="#including-plots" class="h-anchor" aria-hidden="true">#</a>
+</h1>
 <p>You can also embed plots. See Figure <a href="#fig:pie">1</a> for example:</p>
-<pre class="r"><code>par(mar = c(0, 1, 0, 1))
-pie(
-  c(280, 60, 20),
-  c(&#39;Sky&#39;, &#39;Sunny side of pyramid&#39;, &#39;Shady side of pyramid&#39;),
-  col = c(&#39;#0292D8&#39;, &#39;#F7EA39&#39;, &#39;#C4B632&#39;),
-  init.angle = -50, border = NA
-)</code></pre>
-<div class="figure"><span style="display:block;" id="fig:pie"></span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#a6e22e">par</span>(mar <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pie</span>(
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">280</span>, <span style="color:#ae81ff">60</span>, <span style="color:#ae81ff">20</span>),
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#39;Sky&#39;</span>, <span style="color:#e6db74">&#39;Sunny side of pyramid&#39;</span>, <span style="color:#e6db74">&#39;Shady side of pyramid&#39;</span>),
+</span></span><span style="display:flex;"><span>  col <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#39;#0292D8&#39;</span>, <span style="color:#e6db74">&#39;#F7EA39&#39;</span>, <span style="color:#e6db74">&#39;#C4B632&#39;</span>),
+</span></span><span style="display:flex;"><span>  init.angle <span style="color:#f92672">=</span> <span style="color:#ae81ff">-50</span>, border <span style="color:#f92672">=</span> <span style="color:#66d9ef">NA</span>
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><div class="figure">
 <img src="/post/2020-12-01-r-rmarkdown/index_files/figure-html/pie-1.png" alt="A fancy pie chart." width="672" />
-<p class="caption">
-Figure 1: A fancy pie chart.
-</p>
+<p class="caption">Figure 1: A fancy pie chart.</p>
 </div>
-</div>
-<div id="shiny-apps" class="section level1">
-<h1>Shiny Apps</h1>
-<p>This is to demonstrate how we can insert Shiny apps into our blog posts. We can’t write it directly within the .Rmd file of the post, so we have to embed it using an iframe. Fortunately <code>knitr</code> has a built-in function for that:</p>
-<pre class="r"><code>knitr::include_app(url = &quot;https://openjusticeok.shinyapps.io/kids-count-map-test/&quot;,
-                   height = 1000)</code></pre>
-<iframe src="https://openjusticeok.shinyapps.io/kids-count-map-test/?showcase=0" width="672" height="1000" data-external="1">
-</iframe>
+<h1 id="shiny-apps">
+  Shiny Apps
+  <a href="#shiny-apps" class="h-anchor" aria-hidden="true">#</a>
+</h1>
+<p>This is to demonstrate how we can insert Shiny apps into our blog posts. We can&rsquo;t write it directly within the .Rmd file of the post, so we have to embed it using an iframe. Fortunately <code>knitr</code> has a built-in function for that:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>knitr<span style="color:#f92672">::</span><span style="color:#a6e22e">include_app</span>(url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;https://openjusticeok.shinyapps.io/kids-count-map-test/&#34;</span>,
+</span></span><span style="display:flex;"><span>                   height <span style="color:#f92672">=</span> <span style="color:#ae81ff">1000</span>)
+</span></span></code></pre></div><iframe src="https://openjusticeok.shinyapps.io/kids-count-map-test/?showcase=0" width="672" height="1000" data-external="1"></iframe>
 <p>Note also that the size / position of the Shinyapp embed is determined by the iframe CSS rules in <code>/static/style.css</code>. If needed, we can set up seperate classes for different types / sizes of embedded apps.</p>
-</div>
 
+      </div>
+      
+      </div>
+      
     </div>
     
       
@@ -326,6 +328,7 @@ Figure 1: A fancy pie chart.
       
     
   </div>
+  
 
       </div>
 

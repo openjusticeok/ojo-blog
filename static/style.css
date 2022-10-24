@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;900&display=swap');
 
+/* floating TOC */
+.floating-toc {
+  position: sticky;
+  top: 50px;
+  align-self: start;
+  background-color: #FFF;
+  min-width: fit-content;
+}
+
 /* Light and dark mode for links */
 body.light-theme a {
   color: #000000;
@@ -128,6 +137,12 @@ sup {
 
 /* Phone adjustments -----------------------------------------------------------*/
 @media only screen and (max-width: 768px) {
+  
+  /* Disables floating TOC for mobile */
+  .floating-toc {
+  display: none;
+}
+  
   .homepage-blurb {
     width: 100%;
   }
