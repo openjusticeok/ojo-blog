@@ -3,6 +3,8 @@ languageCode: en-us
 theme: hugo-theme-hello-friend
 paginate: 5
 markup:
+  tableOfContents:
+    ordered: true
   goldmark:
     renderer:
       unsafe: true

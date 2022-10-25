@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;900&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* floating TOC */
 .floating-toc {
   position: sticky;
@@ -7,6 +11,18 @@
   align-self: start;
   background-color: #FFF;
   min-width: fit-content;
+}
+
+.floating-toc li a:hover {
+  font-weight: 700;
+}
+
+.floating-toc li.active > a {
+  font-weight: bold;
+}
+
+.floating-toc a {
+  transition: all 100ms ease-in-out;
 }
 
 /* Light and dark mode for links */

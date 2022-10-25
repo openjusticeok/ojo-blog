@@ -57,18 +57,18 @@
       </div>
       {{ if or .Params.Toc $.Site.Params.Toc }}
         {{ if ne .Params.Toc false }}
-      <div class="floating-toc">
-        <div id = "full">
+        <!-- This is the JS script that tracks scrolling and updates the TOC -->
+      <script src="/scroll.spy.js"></script>
+      <nav class="floating-toc">
         <ul class="nav toc-top">
           <li>
             <a href="#" id="back_to_top" class="docs-toc-title">
-              Return to top
+              <b>Return to top</b>
             </a>
           </li>
         </ul>
         {{ .TableOfContents }} <!-- HUGO variable which contains the TOC of the post -->
-        </div>
-      </div>
+      </nav>
         {{ end }}
       {{ end }}
       </div>
