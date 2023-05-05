@@ -30,36 +30,33 @@ library(plotly)
 library(htmltools)
 options(scipen = 999)
 
-# OCDC address data
-# TODO: Pull this data again, for a snapshot only
-address <- read_csv("./data/addresses-06-08-2022.csv", skip = 2) |>
-  janitor::clean_names() |>
-  select(!c(starts_with("x"))) |>
-  mutate(
-    # TRUE if address indicates homelessness, FALSE otherwise
-    homeless = if_else(grepl("TRA[A-Z]*T|^NA, |NONE|HOMELESS|UNKNOWN", toupper(address)) | is.na(address), TRUE, FALSE),
-    def_full_name = offender_name
-  ) 
-  
-# Spot checks
-# How many in current pop? 
-address |>
-  # filter(status == "CURRENT" | status == "TEMP") |> 
-  count(homeless) |>
-  janitor::adorn_percentages(denominator = "col")
-  
-percent_homeless <- address |>
-  count(homeless) |>
-  janitor::adorn_percentages(denominator = "col") |>
-  filter(homeless) |>
-  pull(var = "n") 
+# # OCDC address data
+# # TODO: Pull this data again, for a snapshot only
+# address <- read_csv("./data/addresses-06-08-2022.csv", skip = 2) |>
+#   janitor::clean_names() |>
+#   select(!c(starts_with("x"))) |>
+#   mutate(
+#     # TRUE if address indicates homelessness, FALSE otherwise
+#     homeless = if_else(grepl("TRA[A-Z]*T|^NA, |NONE|HOMELESS|UNKNOWN", toupper(address)) | is.na(address), TRUE, FALSE),
+#     def_full_name = offender_name
+#   ) 
+#   
+# # Spot checks
+# # How many in current pop? 
+# address |>
+#   # filter(status == "CURRENT" | status == "TEMP") |> 
+#   count(homeless) |>
+#   janitor::adorn_percentages(denominator = "col")
+#   
+# percent_homeless <- address |>
+#   count(homeless) |>
+#   janitor::adorn_percentages(denominator = "col") |>
+#   filter(homeless) |>
+#   pull(var = "n") 
 
 ```
 
-<!-- Stat -->
-<p class = "stat-highlight">
-`r (paste0(round(100 * percent_homeless, 2), "%"))`
-</p> 
+<p class = "stat-highlight"> 18% </p>
 
 <!-- Caption -->
 

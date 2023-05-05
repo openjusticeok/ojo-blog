@@ -10,7 +10,7 @@ tags:
   - Oklahoma County
 toc: yes
 useRelativeCover: yes
-cover: /www/jail.png
+cover: www/jail.png
 runtime: shiny
 ---
 

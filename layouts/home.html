@@ -1,15 +1,31 @@
 {{ define "main" }}
     <main aria-role="main">
       <header class="homepage-header">
-        <!-- New version, no subtitle -->
-        <h1>{{ .Title }}</h1>
-        {{ with .Params.logo }}
-        <center><img src={{.}}></center>
-        {{ partial "stat-carousel.html"}}
-        {{ end }}
-        <!-- -->
+        <script src="{{ .Site.BaseURL }}assets/splide.min.js"></script>
+        <link rel="stylesheet" href="{{ .Site.BaseURL }}assets/splide.min.css">
         
-        <!-- Old version, w/ title and subtitle 
+        <!--
+        <h1>{{ .Title }}</h1>
+        -->
+        
+        <h1> OPEN JUSTICE <br> OKLAHOMA </h1>
+        
+        <h2> DATA BLOG </h2>
+        
+        {{ with .Params.logo }}
+        <center><img src="{{.}}"></center>
+        {{ end }}
+        
+        <!--
+        {{ with .Params.subtitle }}
+        <h2>{{.}}</h2>
+        {{ end }}
+        -->
+
+        {{ partial "stat-carousel.html"}}
+        
+        
+        <!-- Old version
         <h1>{{ .Title }}</h1>
         {{ with .Params.logo}}
         <center><img src={{.}}></center>

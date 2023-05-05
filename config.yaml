@@ -48,7 +48,7 @@ languages:
         # logoHomeLink: "https://openjustice.okpolicy.org/" 
         logoText: Open Justice Oklahoma
         path: "/img/ojo-logo-white-cropped.png"
-        alt: "Open Justice Oklahoma"
+        alt: ""
     readMore: Read more
     readOtherPosts: Read other posts
     writtenBy: Written by

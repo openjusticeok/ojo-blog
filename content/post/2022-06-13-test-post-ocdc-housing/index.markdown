@@ -16,9 +16,8 @@ nocite: '@*'
 draft: false
 ---
 
-<!-- Stat -->
 <p class="stat-highlight">
-18.2%
+18%
 </p>
 <!-- Caption -->
 

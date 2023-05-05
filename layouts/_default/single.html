@@ -58,7 +58,7 @@
       {{ if or .Params.Toc $.Site.Params.Toc }}
         {{ if ne .Params.Toc false }}
         <!-- This is the JS script that tracks scrolling and updates the TOC -->
-      <script src="/scroll.spy.js"></script>
+      <script src="{{ .Site.BaseURL }}assets/scroll.spy.js"></script>
       <nav class="floating-toc">
         <ul class="nav toc-top">
           <li>

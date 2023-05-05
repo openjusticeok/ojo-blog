@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap');
 
 html {
   scroll-behavior: smooth;
@@ -9,8 +9,11 @@ html {
   position: sticky;
   top: 50px;
   align-self: start;
-  background-color: #FFF;
   min-width: fit-content;
+}
+
+.floating-toc li {
+  padding-top: 5px;
 }
 
 .floating-toc li a:hover {
@@ -19,6 +22,10 @@ html {
 
 .floating-toc li.active > a {
   font-weight: bold;
+  color: #000000;
+  background-color: rgba(255, 193, 7, 1);
+  border-radius: 15px;
+  padding: 5px;
 }
 
 .floating-toc a {
@@ -98,11 +105,44 @@ sup {
 
 .homepage-header {
  color: #ffffff;
- margin-top: 0px;
  padding-top: 2%;
+ height: calc(90vh - 50px);
+ max-height: 1500px;
+ min-height: 1050px;
+ background-size: cover;
+ background-repeat: no-repeat;
  padding-bottom: 2%;
  background-image: url('img/prison-3.jpg');
- font-family: 'Roboto', sans-serif;
+}
+
+.light-theme .homepage-header {
+    color: #ffffff;
+  }
+
+.light-theme .homepage-header h3 a {
+  color: #ffffff;
+}
+
+.homepage-header > h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 7vw;
+  font-weight: 500;
+  text-align: left;
+  margin-top: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+}
+
+.homepage-header > h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 4vw;
+  font-weight: 300;
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .dark-theme .homepage-content h3 {
@@ -141,38 +181,83 @@ sup {
 
 .homepage-stats {
   margin: auto;
-  width: 60%;
+  width: 50%;
   flex-wrap: wrap;
-  padding-top: 5%;
+  padding-top: 0px;
+  font-weight: 100;
   /* background-color: rgba(255, 255, 255, 0.3); */
+}
+
+.homepage-stats > h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
 }
 
 .splide__slide {
   padding-bottom: 40px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 /* Phone adjustments -----------------------------------------------------------*/
 @media only screen and (max-width: 768px) {
   
+  .figure {
+    width: 90vw;
+  }
+  
+  .pagination__buttons {
+    width: 90vw;
+  }
+  
   /* Disables floating TOC for mobile */
   .floating-toc {
-  display: none;
+    display: none;
 }
   
   .homepage-blurb {
-    width: 100%;
+    width: 80vw;
   }
   
   .homepage-recents {
-    width: 100%;
+    width: 80vw;
   }
   
   .homepage-header {
     background-image: none;
+    height: auto;
+    min-height: 0px;
+  }
+  
+  .homepage-header > h1 {
+    text-align: center;
+  }
+  
+  .homepage-header > h2 {
+    text-align: center;
   }
   
   .light-theme .homepage-header {
     color: #000000;
+  }
+  
+  
+  .light-theme .homepage-header h3 a {
+    color: #000000;
+  }
+  
+  .homepage-stats {
+    width: 80vw;
+  }
+  
+  .homepage-stats h1 {
+    font-size: 6vw;
+    font-weight: 600;
+  }
+  
+  .homepage-stats h3 {
+    font-size: 4vw;
+    font-weight: 100;
   }
   
 }
