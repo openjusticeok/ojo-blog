@@ -20,3 +20,5 @@ blogdown::build_site()
 ```
 
 Link to temp. deployment via Google storage bucket at https://www.openjusticeok.dev/
+
+In order to update the Google Storage bucket, first run `blogdown::build_site()` to build the `/public` directory. Then, run `gcloud-upload.sh` (requires `gsutil`) in order to clear the bucket and replace it with your new version of the site. Takes about ~10 minutes to finish settling, so don't worry if the website is broken at first after you update it.
