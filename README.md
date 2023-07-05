@@ -19,4 +19,4 @@ blogdown::new_post(title = "My first blog post",
 blogdown::build_site()
 ```
 
-Link to temp. deployment via Netlify: https://friendly-taffy-ee1d0f.netlify.app/
+Link to temp. deployment via Google storage bucket at https://www.openjusticeok.dev/
