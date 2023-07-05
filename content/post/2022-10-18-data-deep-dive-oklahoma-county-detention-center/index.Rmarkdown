@@ -96,7 +96,7 @@ read_bookings_by_date_details_and_charges_report <- function(filename) {
 
 }
 
-current_pop <- read_bookings_by_date_details_and_charges_report(paste0("/home/andrew/Documents/GitHub/cjac/data/details-report/", "bookings-by-date-details-with-charges-10-24-2022.csv"))
+current_pop <- read_bookings_by_date_details_and_charges_report("/mnt/data/data/cjac/details-report/bookings-by-date-details-with-charges-10-24-2022.csv")
 
 current_people <- current_pop |>
   group_by(book_num) |>
@@ -129,8 +129,6 @@ last_pop_size <- daily_pop |> filter(day == max(day)) |> pull(var = pop)
 *"Data Deep Dive" posts provide a broad overview of a particular dataset, policy area, or problem. This one covers Open Justice Oklahoma's Oklahoma county jail data, which includes information on the population, bookings, releases, etc. at the Oklahoma County Detention Center (OCDC) in Oklahoma City, Oklahoma.*
 
 ------------------------------------------------------------------------
-
-[![Image from CNN](www/cnn.jpg)](https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F210328003024-oklahoma-county-jail-hostage-situation-0327.jpg)
 
 ## The Oklahoma County Detention Center
 
