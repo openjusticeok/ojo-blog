@@ -19,7 +19,7 @@ blogdown::new_post(title = "My first blog post",
 blogdown::build_site()
 ```
 
-### Link to temp. deployment: https://www.openjusticeok.dev/
+### Link to temp. deployment: https://www.openjusticeok.dev/ [![Netlify Status](https://api.netlify.com/api/v1/badges/739268fa-1559-4934-9e5b-162bcec06dd8/deploy-status)](https://app.netlify.com/sites/elaborate-faun-09bfc6/deploys)
 
 ~~In order to update the Google Storage bucket, first run `blogdown::build_site()` to build the `/public` directory. Then, run `gcloud-upload.sh` (requires `gsutil`) in order to clear the bucket and replace it with your new version of the site. Takes about 10 minutes to finish settling, so don't worry if the website is broken at first after you update it.~~
 
