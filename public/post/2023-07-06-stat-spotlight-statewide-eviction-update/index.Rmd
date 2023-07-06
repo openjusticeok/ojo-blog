@@ -1,0 +1,79 @@
+---
+title: 'Stat Spotlight: Statewide Eviction Update'
+author: Andrew Bell
+date: '2023-07-06'
+slug: []
+categories:
+  - Housing
+tags:
+  - Housing
+  - Evictions
+---
+
+```{r setup, include = FALSE}
+library(ojodb)
+library(plotly)
+library(tidyverse)
+library(directlabels)
+
+knitr::opts_chunk$set(warning = FALSE, 
+                      message = FALSE,
+                      echo = FALSE,
+                      fig.align = 'center',
+                      fig.showtext = TRUE,
+                      out.align = 'center',
+                      out.width = '100%')
+
+# ds <- ojo_civ_cases(case_types = "SC",
+#                     # districts = "Oklahoma",
+#                     file_years = c(2019:2023)) |>
+#   filter(str_detect(description, "FORCI")) |>
+#   ojo_collect()
+# 
+# monthly_filings <- ds |>
+#   count(district, month_filed = floor_date(date_filed, "months")) |>
+#   filter(month_filed < ymd("2023-07-01"))
+
+# write_rds(monthly_filings, "/home/andrew/Documents/GitHub/ojo-blog/content/post/2023-07-06-stat-spotlight-statewide-eviction-update/data/monthly-filings.rds")
+
+monthly_filings <- read_rds("./data/monthly-filings.rds")
+
+```
+
+
+```{r graph, fig.cap="Eviction filings remain high in 2023."}
+  
+graph <- monthly_filings |>
+  filter(district %in% c("OKLAHOMA", "TULSA")) |>
+  ggplot(aes(x = month_filed,
+             y = n,
+             color = district,
+             group = 1,
+             text = paste0("County: ", janitor::make_clean_names(district, case = "title", allow_dupes = TRUE), "<br>",
+                           "Month: ", format(month_filed, "%B %Y"), "<br>",
+                           "Evictions Filed: ", format(n, big.mark = ","))
+               )) +
+  geom_line(linewidth = 1.5) +
+  geom_vline(xintercept = as.numeric(ymd("2020-03-01")),
+             linetype = "dashed") +
+  annotate(geom = "text",
+           label = "  COVID-19 Pandemic",
+           x = ymd("2020-03-01"),
+           y = 2200) +
+  scale_y_continuous(limits = c(0, NA), labels = scales::comma) +
+  labs(color = "District") +
+  ggthemes::theme_fivethirtyeight()
+
+ggplotly(graph, tooltip = "text") |>
+  style(textposition = "right") |>
+  layout(
+    legend = list(orientation = "h"),
+    hovermode = "x"
+    )
+
+```
+
+---
+
+Evictions in Oklahoma and Tulsa county have been rebounding steadily since they dropped to almost zero in March of 2020, as the temporary and partial freezes on new filings during the COVID-19 pandemic have been discontinued. In Oklahoma county, filings are down slightly from a recent high of **`r monthly_filings |> filter(district == "OKLAHOMA", month_filed == ymd("2022-08-01")) |> pull(var = n) |> format(big.mark = ",")`** filings in August of 2022, while in Tulsa they remain near pre-pandemic levels at 1,200 - 1,400 filings per month.
+

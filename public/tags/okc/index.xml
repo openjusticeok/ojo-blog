@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OKC on OJO</title>
+    
+    
+    
+    <link>/tags/okc/</link>
+    <description>Recent content in OKC on OJO</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 06 Jul 2023 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/okc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Deep Dive: Evictions</title>
+      <link>/post/2023-07-06-deep-dive-the-oklahoma-county-detention-center/</link>
+      <pubDate>Thu, 06 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>/post/2023-07-06-deep-dive-the-oklahoma-county-detention-center/</guid>
+      <description>
+        
+          &lt;img src=&#34;/post/2023-07-06-deep-dive-the-oklahoma-county-detention-center/www/jail.png&#34;/&gt;
+          
+        
+        
+        
+          &amp;ldquo;Data Deep Dive&amp;rdquo; posts provide a broad overview of a particular dataset, policy area, or problem. This one covers Open Justice Oklahoma&amp;rsquo;s Oklahoma county jail data, which includes information on the population, bookings, releases, etc. at the Oklahoma County Detention Center (OCDC) in Oklahoma City, Oklahoma.
+Evictions in Oklahoma # 
+          
+        
+        </description>
+    </item>
+    
+  </channel>
+</rss>

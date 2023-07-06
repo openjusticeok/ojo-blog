@@ -206,10 +206,14 @@ sup {
 }
 
 /* Phone adjustments -----------------------------------------------------------*/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1280px) {
   
   .figure {
     width: 90vw;
+  }
+  
+  .plotly {
+    max-width: 100%;
   }
   
   .pagination__buttons {
