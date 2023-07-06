@@ -1,18 +1,20 @@
 ---
-title: 'Data Deep Dive: Oklahoma County Detention Center'
+title: 'Deep Dive: The Oklahoma County Detention Center'
 author: Andrew Bell
-date: '2022-10-18'
+date: '2023-07-06'
+slug: []
 categories:
   - Jails
 tags:
   - Jails
   - OCDC
   - Oklahoma County
-toc: yes
+  - OKC
 useRelativeCover: yes
 cover: www/jail.png
-runtime: shiny
+toc: true
 ---
+
 
 ```{r setup, include=FALSE}
 # Setup ========================================================================
@@ -20,7 +22,6 @@ library(ojodb)
 library(ggthemes)
 library(tidyverse)
 library(plotly)
-library(shiny)
 
 options(scipen = 999)
 
@@ -29,7 +30,8 @@ knitr::opts_chunk$set(warning = FALSE,
                       echo = FALSE,
                       fig.align = 'center',
                       fig.showtext = TRUE,
-                      out.align = 'center')
+                      out.align = 'center',
+                      out.width = '100%')
 
 # OCDC Data
 books <- ojo_tbl(schema = "ocdc",
@@ -42,6 +44,7 @@ books <- ojo_tbl(schema = "ocdc",
 #                      table = "daily_pop") |>
 #   collect()
 # write_rds(daily_pop, "./data/daily_pop.rds")
+
 daily_pop <- read_rds("./data/daily_pop.rds") |>
   filter(day >= ymd("2015-01-01"))
 

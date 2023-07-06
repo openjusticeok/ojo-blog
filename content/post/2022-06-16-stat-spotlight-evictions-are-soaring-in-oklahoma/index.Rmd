@@ -18,11 +18,16 @@ library(tidyverse)
 knitr::opts_chunk$set(warning = FALSE, 
                       message = FALSE,
                       echo = FALSE,
-                      fig.align = 'center')
+                      fig.align = 'center',
+                      fig.showtext = TRUE,
+                      out.align = 'center',
+                      out.width = '100%')
 
-ds <- ojo_civ_cases(case_types = "SC", file_years = c(2019:2022)) |>
+ds <- ojo_civ_cases(case_types = "SC", 
+                    # districts = "Oklahoma",
+                    file_years = c(2019:2022)) |>
   filter(str_detect(description, "FORCI")) |>
-  collect() 
+  ojo_collect()
 
 ```
 
@@ -39,8 +44,8 @@ graph <- monthly_filings |>
              color = district)) +
   geom_line() +
   scale_y_continuous(limits = c(0, NA)) +
-  guides(color = "none") +
-  ggthemes::theme_fivethirtyeight()
+  ggthemes::theme_fivethirtyeight() +
+  theme(legend.position='none')
 
 ggplotly(graph)
 

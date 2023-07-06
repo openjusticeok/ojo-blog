@@ -29,7 +29,8 @@ knitr::opts_chunk$set(warning = FALSE,
                       echo = FALSE,
                       fig.align = 'center',
                       fig.showtext = TRUE,
-                      out.align = 'center')
+                      out.align = 'center',
+                      out.width = '100%')
 
 # OCDC Data
 books <- ojo_tbl(schema = "ocdc",
