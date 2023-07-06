@@ -19,17 +19,16 @@ library(ojodb)
 library(ggthemes)
 library(tidyverse)
 library(plotly)
-library(shiny)
-
+ 
 options(scipen = 999)
 
 knitr::opts_chunk$set(warning = FALSE, 
-                      message = FALSE,
+                      message = FALSE, 
                       echo = FALSE,
                       fig.align = 'center',
                       fig.showtext = TRUE,
-                      out.align = 'center',
-                      out.width = '100%')
+                      out.align = 'center'
+                      )
 
 # OCDC Data
 books <- ojo_tbl(schema = "ocdc",
@@ -123,7 +122,7 @@ end_date <- max(daily_pop$day)
 total_bookings <- books |> n_distinct("book_num", na.rm = T)
 past_year_bookings <- books |> filter(book_date >= end_date - years(1)) |> nrow()
 last_pop_size <- daily_pop |> filter(day == max(day)) |> pull(var = pop)
-
+ 
 ```
 
 *"Data Deep Dive" posts provide a broad overview of a particular dataset, policy area, or problem. This one covers Open Justice Oklahoma's Oklahoma county jail data, which includes information on the population, bookings, releases, etc. at the Oklahoma County Detention Center (OCDC) in Oklahoma City, Oklahoma.*
@@ -406,7 +405,7 @@ plot_gender_ot <- daily_pop |>
   geom_line() +
   scale_y_continuous(labels = scales::comma) +
   labs(title = "",
-       x = "",
+       x = "", 
        y = "Number in Population Snapshot") +
   theme_clean()
 
@@ -416,66 +415,3 @@ ggplotly(plot_gender_ot) |>
 
 DISCUSSION
 
-### Demographics: Race
-
-basic stats
-
-analysis of length of stay
-
-description of change 2014-2022
-
-### Demographics: Age
-
-basic stats
-
-analysis of length of stay
-
-description of change 2014-2022
-
-### Other Factors: Housing
-
-basic stats
-
-analysis of length of stay
-
-frequent utilizers
-
-description of change 2014-2022
-
-### Other Factors: Geography
-
-basic stats
-
-description of change 2014-2022
-
-analysis of length of stay
-
-## What kinds of charges are people being held on?
-
-basic descriptive stats
-
-an "average" case -- multiple charges,
-
-most common headliner charges
-
-most common addon charges
-
-intersections with demographics, geography, housing, etc
-
-## What does the data say about bail?
-
-how bail works
-
-descriptive stats -- avg bail for different types of cases, etc?
-
-how many are there because they can't pay bail? staged by amount
-
-## What can we learn from this?
-
-crime hasn't gone up as the jail pop has plummeted, we need to keep going. maybe some suggestions / takeaways
-
-## Other OJO work that uses OCDC data
-
-dhub
-
-legislative pritorities / wins
